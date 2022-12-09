@@ -186,7 +186,7 @@ class Chat:
         # Set conversation IDs if supplied
         if previous_convo_id is not None and len(previous_convo_id) != 0:
             self.previous_convo_id = previous_convo_id
-        if conversation_id is not None and len(previous_convo_id) != 0:
+        if conversation_id is not None and len(conversation_id) != 0:
             self.conversation_id = conversation_id
 
         answer, previous_convo, convo_id = ChatHandler.ask(auth_token=access_token,
