@@ -204,8 +204,14 @@ class Chat:
 
         self.conversation_id = convo_id
         self.previous_convo_id = previous_convo
-        print("Conv id:" + self.conversation_id)
-        print("Prev conv ID:" + self.previous_convo_id)
+        if (self.conversation_id is not None):
+            print("Conv ID:" + self.conversation_id)
+        else:
+            print("Conv ID: None")
+        if (self.previous_convo_id is not None):
+            print("Prev conv ID:" + self.previous_convo_id)
+        else:
+            print("Prev conv ID: None")
 
         if self.options.track:
             self.__chat_history.append("You: " + prompt)
