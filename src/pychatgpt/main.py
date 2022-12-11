@@ -25,7 +25,7 @@ class Options:
         self.log: bool = True
         self.proxies: str or dict or None = None
         self.track: bool or None = False
-        self.verify: bool = True
+        self.verify: str or bool = True
         self.chat_log: str or None = None
         self.id_log: str or None = None
 
@@ -207,7 +207,8 @@ class Chat:
                                                            prompt=prompt,
                                                            conversation_id=self.conversation_id,
                                                            previous_convo_id=self.previous_convo_id,
-                                                           proxies=self.options.proxies)
+                                                           proxies=self.options.proxies,
+                                                           verify=self.verify)
 
         if rep_queue is not None:
             rep_queue.put((prompt, answer))

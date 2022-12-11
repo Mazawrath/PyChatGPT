@@ -19,7 +19,8 @@ def ask(
         conversation_id:
         str or None,
         previous_convo_id: str or None,
-        proxies: str or dict or None
+        proxies: str or dict or None,
+        verify: str or bool or None
 ) -> Tuple[str, str or None, str or None]:
     auth_token, expiry = auth_token
 
@@ -58,6 +59,8 @@ def ask(
     }
     try:
         session = requests.Session()
+        session.verify = verify
+        
         if proxies is not None:
             if isinstance(proxies, str):
                 proxies = {'http': proxies, 'https': proxies}
